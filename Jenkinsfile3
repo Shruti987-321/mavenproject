@@ -1,0 +1,13 @@
+pipeline{
+agent any
+stages
+{
+   stage('scm checkout: download code from github')
+     {steps {git branch: 'master', url: 'https://github.com/Shruti987-321/maven-project'}}
+
+  stage('execute unit test framework')
+  {steps { withMaven(globalMavenSettingsConfig: '',jdk: 'JAVA_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig:
+      sh 'mvn test'
+} }
+}
+}

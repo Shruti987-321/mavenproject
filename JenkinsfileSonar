@@ -12,7 +12,7 @@ stage('execute unit test framework')
   }
 }
     stage('sonar analysis')
-    {steps { withSonarQubeEnv(credentialsId: 'sonar'){
+    {steps { withSonarQubeEnv(credentialsId: 'sonar', installtionName: 'sonar'){
       sh 'sonar:sonar'
     }
            }
@@ -22,5 +22,7 @@ stage('execute unit test framework')
       sh 'mvn package'
     }  
   }
+}
+}
 }
     
